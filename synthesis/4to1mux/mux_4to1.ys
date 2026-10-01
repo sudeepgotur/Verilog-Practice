@@ -1,0 +1,16 @@
+read_verilog combinational/mux_4to1.v
+
+hierarchy -check -top mux_4to1
+
+proc
+opt
+techmap
+opt
+
+abc -liberty /home/sudeep/vlsi/NangateOpenCellLibrary_PDKv1_3_v2010_12/Front_End/Liberty/NLDM/NangateOpenCellLibrary_typical.lib
+
+clean
+
+stat
+
+write_verilog -noattr synthesis/4to1mux/mux_4to1_45nm.v
