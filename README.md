@@ -25,29 +25,29 @@ design flow.
              Verilog RTL
                   │
                   ▼
-             Testbench
+              Testbench
                   │
                   ▼
-          Icarus Verilog
+           Icarus Verilog
                   │
                   ▼
               Simulation
                   │
                   ▼
-             GTKWave
+               GTKWave
                   │
                   ▼
-               Yosys
+                Yosys
                   │
                   ▼
-             Synthesis
+              Synthesis
                   │
                   ▼
-          NanGate 45nm
+            NanGate 45nm
          Technology Library
                   │
                   ▼
-             OpenSTA
+               OpenSTA
                   │
                   ▼
         Static Timing Analysis
