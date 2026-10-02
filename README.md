@@ -52,14 +52,15 @@ design flow.
                   ▼
         Static Timing Analysis
 ```
+
 ---
 
 ## Current Work
 
 ### 2-to-1 Multiplexer
 
-The 2-to-1 multiplexer is currently taken through the most complete flow
-in this repository:
+The 2-to-1 multiplexer is currently the most complete design in this
+repository and has been taken through the following stages:
 
 - Verilog RTL implementation
 - Testbench development
@@ -69,7 +70,7 @@ in this repository:
 - RTL synthesis using Yosys
 - Technology mapping using the NanGate 45nm Open Cell Library
 - Static Timing Analysis using OpenSTA
-- Timing reports including WNS and TNS
+- Timing analysis including WNS and TNS
 
 ### 4-to-1 Multiplexer
 
@@ -82,27 +83,168 @@ The 4-to-1 multiplexer currently includes:
 - GTKWave waveform analysis
 - RTL synthesis using Yosys
 - Synthesized netlist exploration
+- Technology mapping using the NanGate 45nm Open Cell Library
 
 Further timing analysis will be added as the design flow develops.
 
 ---
 
+## 2-to-1 Multiplexer — RTL to STA
+
+The 2-to-1 multiplexer is currently the most complete example of the
+open-source ASIC design flow in this repository.
+
+### Design Flow
+
+```text
+RTL Design
+    │
+    ▼
+Functional Simulation
+    │
+    ▼
+Waveform Analysis
+    │
+    ▼
+RTL Synthesis
+    │
+    ▼
+Technology Mapping
+    │
+    ▼
+Static Timing Analysis
+```
+
+### 1. RTL Design
+
+The multiplexer was implemented using synthesizable Verilog RTL.
+
+**Source:**
+
+```text
+combinational/mux_2to1.v
+```
+
+### 2. Functional Simulation
+
+The RTL was simulated using **Icarus Verilog** with a dedicated
+testbench.
+
+Simulation files and generated waveforms are available in:
+
+```text
+simulation/2_to_1_mux/
+```
+
+The generated VCD waveform was analyzed using **GTKWave**.
+
+### 3. RTL Synthesis
+
+The design was synthesized using **Yosys**.
+
+The synthesized design was mapped to cells from the
+**NanGate 45nm Open Cell Library**.
+
+Synthesis files, mapped netlists, and the synthesized schematic are
+available in:
+
+```text
+synthesis/2_to_1_mux/
+```
+
+### 4. Static Timing Analysis
+
+Static Timing Analysis was performed using **OpenSTA**.
+
+Timing constraints were defined using an SDC file, and timing reports
+were generated for the synthesized design.
+
+STA files and reports are available in:
+
+```text
+sta/2_to_1_mux/
+```
+
+The analysis includes:
+
+- Maximum timing analysis
+- Minimum timing analysis
+- Worst Negative Slack (WNS)
+- Total Negative Slack (TNS)
+- Clock and I/O timing constraints
+
+### Flow Status
+
+| Stage | Tool / Technology | Status |
+| --- | --- | --- |
+| RTL Design | Verilog HDL | ✅ |
+| Functional Simulation | Icarus Verilog | ✅ |
+| Waveform Analysis | GTKWave | ✅ |
+| RTL Synthesis | Yosys | ✅ |
+| Technology Mapping | NanGate 45nm | ✅ |
+| Static Timing Analysis | OpenSTA | ✅ |
+| Power Analysis | — | 🔜 |
+| Physical Design / GDS | — | 🔜 |
+
+---
+
+## Design Results
+
+### GTKWave Simulation
+
+![2-to-1 MUX GTKWave Simulation](simulation/2_to_1_mux/waveform_from_GTKwave.png)
+
+### Synthesized Schematic
+
+![2-to-1 MUX Synthesized Schematic](synthesis/2_to_1_mux/mux_schematic.png)
+
+---
+
 ## Topics & Planned Practice
 
-- Combinational Logic
-- Sequential Logic
-- Multiplexers and Demultiplexers
-- Encoders and Decoders
-- Adders and Subtractors
-- Comparators
-- Flip-Flops
-- Registers and Shift Registers
-- Counters
-- Finite State Machines (FSMs)
-- RTL Design Concepts
-- Testbench Development
-- Functional Verification
-- RTL Synthesis
+### Combinational Logic
+
+- 2-to-1 Multiplexer
+- 4-to-1 Multiplexer
+- Decoder
+- Encoder
+- Comparator
+- Half Adder
+- Full Adder
+- Subtractor
+
+### Sequential Logic
+
+- D Flip-Flop
+- JK Flip-Flop
+- Registers
+- Shift Registers
+- Up Counter
+- Down Counter
+
+### RTL Design
+
+- Parameterized Modules
+- Hierarchical Design
+- Finite State Machines
+- Synchronous Design Concepts
+
+### Verification
+
+- Basic Testbenches
+- Self-Checking Testbenches
+- Waveform Analysis
+- Verilator-Based Checking
+
+### Synthesis
+
+- Basic RTL Synthesis
+- Logic Utilization Analysis
+- Synthesized Netlist Exploration
+- Technology Mapping
+
+The practice list will be updated as each topic is implemented and verified.
+
 ---
 
 ## Repository Structure
@@ -121,29 +263,29 @@ Verilog-Practice/
 │   │   ├── iverilog_output.png
 │   │   └── waveform_from_GTKWave.png
 │   │
-│   └── 4to1mux/
+│   └── 4_to_1_mux/
 │       ├── mux_4to1_tb.v
 │       ├── mux_4to1.vcd
 │       ├── iverilog_output.png
 │       └── waveform_from_GTKWave.png
 │
 ├── synthesis/
-│   ├── 2_to_1_mux_syn/
+│   ├── 2_to_1_mux/
+│   │   ├── MUX2_X1.v
 │   │   ├── mux_2to1.ys
 │   │   ├── mux_2to1_45nm.v
-│   │   ├── MUX2_X1.v
 │   │   ├── mux_schematic.dot
 │   │   └── mux_schematic.png
 │   │
-│   └── 4to1mux/
+│   └── 4_to_1_mux/
+│       ├── MUX2_X1.v
 │       ├── mux_4to1.ys
 │       ├── mux_4to1_45nm.v
-│       ├── MUX2_X1.v
 │       ├── mux_4to1_schematic.dot
 │       └── mux_4to1_schematic.png
 │
 ├── sta/
-│   └── 2to1mux/
+│   └── 2_to_1_mux/
 │       ├── mux_2to1.sdc
 │       ├── run_sta.tcl
 │       ├── max_timing.rpt
@@ -157,18 +299,20 @@ Verilog-Practice/
 │
 └── README.md
 ```
+
 ---
 
 ## Tools and Technologies
 
 | Tool / Technology | Purpose |
-| ----------------- | ------- |
-| Verilog HDL       | RTL design |
-| Icarus Verilog    | RTL simulation |
-| GTKWave           | Waveform analysis |
-| Verilator         | RTL checking and verification |
-| Yosys             | RTL synthesis |
-| OpenSTA           | Static Timing Analysis |
+| --- | --- |
+| Verilog HDL | RTL design |
+| Icarus Verilog | RTL simulation |
+| GTKWave | Waveform analysis |
+| Verilator | RTL checking and verification |
+| Yosys | RTL synthesis |
+| OpenSTA | Static Timing Analysis |
+| NanGate 45nm OCL | Technology library |
 
 ---
 
@@ -188,52 +332,15 @@ Each design is approached through the following steps:
 - Apply timing constraints
 - Perform static timing analysis where applicable
 
----
-
-## Practice Progress
-
-### Combinational Logic
-1. 2-to-1 Multiplexer
-2. 4-to-1 Multiplexer
-3. Decoder
-4. Encoder
-5. Comparator
-6. Half Adder
-7. Full Adder
-8. Subtractor
-
-### Sequential Logic
-- D Flip-Flop
-- JK Flip-Flop
-- Registers
-- Shift Registers
-- Up Counter
-- Down Counter
-
-### RTL Design
-- Parameterized Modules
-- Hierarchical Design
-- Finite State Machines
-- Synchronous Design Concepts
-
-### Verification
-- Basic Testbenches
-- Self-Checking Testbenches
-- Waveform Analysis
-- Verilator-Based Checking
-
-### Synthesis
-- Basic RTL Synthesis
-- Logic Utilization Analysis
-- Synthesized Netlist Exploration
-
-The checklist will be updated as each topic is implemented and verified.
+The goal is to understand not only how to write RTL, but also how the
+design behaves through the stages of an ASIC design flow.
 
 ---
 
 ## Purpose
 
-This repository is part of my continuous learning and preparation for careers in:
+This repository is part of my continuous learning and preparation for
+careers in:
 
 - RTL Design
 - ASIC Design
@@ -241,13 +348,30 @@ This repository is part of my continuous learning and preparation for careers in
 - Digital Design
 - Functional Verification
 
-The goal is to develop practical skills by moving from digital logic concepts → RTL implementation → simulation → verification → synthesis.
+The goal is to develop practical skills by progressing from:
+
+```text
+Digital Logic
+     ↓
+Verilog RTL
+     ↓
+Simulation
+     ↓
+Verification
+     ↓
+Synthesis
+     ↓
+Technology Mapping
+     ↓
+Static Timing Analysis
+```
 
 ---
 
 ## Future Direction
 
-As my RTL skills develop, the practice work will progress toward more advanced designs such as:
+As my RTL and ASIC design skills develop, the practice work will progress
+toward more advanced designs such as:
 
 - Arithmetic Units
 - ALUs
@@ -257,13 +381,18 @@ As my RTL skills develop, the practice work will progress toward more advanced d
 - FSM-Based Controllers
 - Pipelined RTL Designs
 - Parameterized RTL Modules
+- Power Analysis
+- Physical Design
+- GDS Generation
 
-These exercises will provide a foundation for larger ASIC and RTL design projects.
+These exercises will provide a foundation for larger ASIC and RTL design
+projects.
+
+---
 
 ## Author
 
 **Sudeep T. Gotur**
 
-Electronics and Communication Engineering
+Electronics and Communication Engineering  
 KLS Vishwanath Rao Deshpande Institute of Technology
-
