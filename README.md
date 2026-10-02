@@ -1,18 +1,93 @@
 # Verilog Practice
 
-A collection of Verilog HDL practice modules covering digital logic design, RTL concepts, testbench development, and simulation.
+A hands-on collection of Verilog HDL designs and RTL experiments focused on
+digital logic design, simulation, synthesis, and static timing analysis.
+
+This repository documents my progression from writing RTL to analyzing
+synthesized designs and timing results using an open-source ASIC design flow.
+
 ---
 
 ## Overview
 
-This repository documents my hands-on practice with **Verilog HDL** and **RTL design**.
+This repository contains Verilog RTL implementations, testbenches,
+simulation results, synthesized netlists, and static timing analysis files.
 
-The focus is on implementing digital circuits, writing synthesizable RTL, developing testbenches, verifying functionality through simulation, analyzing waveforms, and exploring RTL synthesis.
+The current work focuses on small digital designs such as multiplexers,
+with each design progressing through different stages of the RTL-to-ASIC
+design flow.
 
-The repository will be continuously updated as new digital design concepts and RTL modules are implemented.
 ---
 
-## Topics Covered
+## Current Design Flow
+
+```text
+             Verilog RTL
+                  │
+                  ▼
+             Testbench
+                  │
+                  ▼
+          Icarus Verilog
+                  │
+                  ▼
+              Simulation
+                  │
+                  ▼
+             GTKWave
+                  │
+                  ▼
+               Yosys
+                  │
+                  ▼
+             Synthesis
+                  │
+                  ▼
+          NanGate 45nm
+         Technology Library
+                  │
+                  ▼
+             OpenSTA
+                  │
+                  ▼
+        Static Timing Analysis
+```
+---
+
+## Current Work
+
+### 2-to-1 Multiplexer
+
+The 2-to-1 multiplexer is currently taken through the most complete flow
+in this repository:
+
+- Verilog RTL implementation
+- Testbench development
+- Functional simulation
+- VCD waveform generation
+- GTKWave waveform analysis
+- RTL synthesis using Yosys
+- Technology mapping using the NanGate 45nm Open Cell Library
+- Static Timing Analysis using OpenSTA
+- Timing reports including WNS and TNS
+
+### 4-to-1 Multiplexer
+
+The 4-to-1 multiplexer currently includes:
+
+- Verilog RTL implementation
+- Testbench development
+- Functional simulation
+- VCD waveform generation
+- GTKWave waveform analysis
+- RTL synthesis using Yosys
+- Synthesized netlist exploration
+
+Further timing analysis will be added as the design flow develops.
+
+---
+
+## Topics & Planned Practice
 
 - Combinational Logic
 - Sequential Logic
@@ -37,65 +112,51 @@ Verilog-Practice/
 │
 ├── combinational/
 │   ├── mux_2to1.v
-│   ├── mux_4to1.v
-│   ├── decoder.v
-│   ├── encoder.v
-│   └── ...
-│
-├── sequential/
-│   ├── d_ff.v
-│   ├── counter.v
-│   ├── shift_register.v
-│   └── ...
+│   └── mux_4to1.v
 │
 ├── simulation/
-|   ├── 2_to_1_mux
-|   ├── 4to1mux
-|   └── ...
-|
-├── sta/
-|   ├── 2to1mux
-|   ├── 4to1mux
-|   └── ...
-|
+│   ├── 2_to_1_mux/
+│   │   ├── mux_2to1_tb.v
+│   │   ├── mux_2to1.vcd
+│   │   ├── iverilog_output.png
+│   │   └── waveform_from_GTKWave.png
+│   │
+│   └── 4to1mux/
+│       ├── mux_4to1_tb.v
+│       ├── mux_4to1.vcd
+│       ├── iverilog_output.png
+│       └── waveform_from_GTKWave.png
+│
 ├── synthesis/
-|   ├── 2_to_1_mux_syn
-|   ├── 4to1mux
-|   └── ...
-|
+│   ├── 2_to_1_mux_syn/
+│   │   ├── mux_2to1.ys
+│   │   ├── mux_2to1_45nm.v
+│   │   ├── MUX2_X1.v
+│   │   ├── mux_schematic.dot
+│   │   └── mux_schematic.png
+│   │
+│   └── 4to1mux/
+│       ├── mux_4to1.ys
+│       ├── mux_4to1_45nm.v
+│       ├── MUX2_X1.v
+│       ├── mux_4to1_schematic.dot
+│       └── mux_4to1_schematic.png
+│
+├── sta/
+│   └── 2to1mux/
+│       ├── mux_2to1.sdc
+│       ├── run_sta.tcl
+│       ├── max_timing.rpt
+│       ├── min_timing.rpt
+│       ├── wns.rpt
+│       └── tns.rpt
+│
 ├── testbenches/
 │   ├── mux_2to1_tb.v
-│   ├── mux_4to1_tb.v
-│   └── ...
+│   └── mux_4to1_tb.v
 │
 └── README.md
 ```
----
-
-## Design and Verification Workflow
-
-The designs are developed using the following RTL workflow:
-
-```text
-        Verilog RTL
-             │
-             ▼
-         Testbench
-             │
-             ▼
-      Icarus Verilog
-             │
-             ▼
-         Simulation
-             │
-             ▼
-       VCD Waveform
-             │
-             ▼
-          GTKWave
-```
-Where applicable, Verilator is used for additional RTL checking and Yosys is used to explore RTL synthesis.
-
 ---
 
 ## Tools and Technologies
@@ -122,7 +183,10 @@ Each design is approached through the following steps:
 - Simulate the design
 - Analyze the simulation waveform
 - Debug and improve the RTL
-- Explore synthesis where applicable
+- Explore RTL synthesis
+- Analyze synthesized netlists
+- Apply timing constraints
+- Perform static timing analysis where applicable
 
 ---
 
