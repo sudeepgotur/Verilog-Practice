@@ -48,6 +48,21 @@ Verilog-Practice/
 │   ├── shift_register.v
 │   └── ...
 │
+├── simulation/
+|   ├── 2_to_1_mux
+|   ├── 4to1mux
+|   └── ...
+|
+├── sta/
+|   ├── 2to1mux
+|   ├── 4to1mux
+|   └── ...
+|
+├── synthesis/
+|   ├── 2_to_1_mux_syn
+|   ├── 4to1mux
+|   └── ...
+|
 ├── testbenches/
 │   ├── mux_2to1_tb.v
 │   ├── mux_4to1_tb.v
@@ -92,6 +107,7 @@ Where applicable, Verilator is used for additional RTL checking and Yosys is use
 | GTKWave           | Waveform analysis |
 | Verilator         | RTL checking and verification |
 | Yosys             | RTL synthesis |
+| OpenSTA           | Static Timing Analysis |
 
 ---
 
