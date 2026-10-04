@@ -292,6 +292,7 @@ Verilog-Practice/
 │   |   ├── min_timing.rpt
 │   |   ├── wns.rpt
 │   |   └── tns.rpt
+|   |
 |   └── 4_to_1_mux/
 │       ├── mux_4to1.sdc
 │       ├── run_sta.tcl
