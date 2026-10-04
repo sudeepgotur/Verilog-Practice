@@ -1,0 +1,28 @@
+Startpoint: S0 (input port clocked by CLK)
+Endpoint: Y (output port clocked by CLK)
+Path Group: CLK
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock CLK (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   2.00    2.00 ^ input external delay
+   0.00    2.00 ^ S0 (in)
+   0.05    2.05 v _2_/Z (MUX2_X1)
+   0.05    2.11 v _4_/Z (MUX2_X1)
+   0.00    2.11 v Y (out)
+           2.11   data arrival time
+
+  10.00   10.00   clock CLK (rise edge)
+   0.00   10.00   clock network delay (ideal)
+   0.00   10.00   clock reconvergence pessimism
+  -2.00    8.00   output external delay
+           8.00   data required time
+---------------------------------------------------------
+           8.00   data required time
+          -2.11   data arrival time
+---------------------------------------------------------
+           5.89   slack (MET)
+
+
