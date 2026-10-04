@@ -285,8 +285,15 @@ Verilog-Practice/
 │       └── mux_4to1_schematic.png
 │
 ├── sta/
-│   └── 2_to_1_mux/
-│       ├── mux_2to1.sdc
+│   ├── 2_to_1_mux/
+│   |   ├── mux_2to1.sdc
+│   |   ├── run_sta.tcl
+│   |   ├── max_timing.rpt
+│   |   ├── min_timing.rpt
+│   |   ├── wns.rpt
+│   |   └── tns.rpt
+|   └── 4_to_1_mux/
+│       ├── mux_4to1.sdc
 │       ├── run_sta.tcl
 │       ├── max_timing.rpt
 │       ├── min_timing.rpt
