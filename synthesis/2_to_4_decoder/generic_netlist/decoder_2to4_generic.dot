@@ -1,0 +1,35 @@
+digraph "decoder_2to4" {
+label="decoder_2to4";
+rankdir="LR";
+remincross=true;
+n1 [ shape=octagon, label="A", color="black", fontcolor="black"];
+n2 [ shape=octagon, label="B", color="black", fontcolor="black"];
+n3 [ shape=octagon, label="Y0", color="black", fontcolor="black"];
+n4 [ shape=octagon, label="Y1", color="black", fontcolor="black"];
+n5 [ shape=octagon, label="Y2", color="black", fontcolor="black"];
+n6 [ shape=octagon, label="Y3", color="black", fontcolor="black"];
+n7 [ shape=diamond, label="_0_", color="black", fontcolor="black"];
+n8 [ shape=diamond, label="_1_", color="black", fontcolor="black"];
+c10 [ shape=record, label="{{<p1> A|<p2> B}|$1\n$and|{<p9> Y}}",  ];
+c11 [ shape=record, label="{{<p1> A|<p2> B}|$2\n$and|{<p9> Y}}",  ];
+c12 [ shape=record, label="{{<p1> A|<p2> B}|$3\n$and|{<p9> Y}}",  ];
+c13 [ shape=record, label="{{<p1> A|<p2> B}|$4\n$and|{<p9> Y}}",  ];
+c14 [ shape=record, label="{{<p1> A}|$5\n$not|{<p9> Y}}",  ];
+c15 [ shape=record, label="{{<p1> A}|$6\n$not|{<p9> Y}}",  ];
+n1:e -> c12:p1:w [color="black", fontcolor="black", label=""];
+n1:e -> c13:p1:w [color="black", fontcolor="black", label=""];
+n1:e -> c14:p1:w [color="black", fontcolor="black", label=""];
+n2:e -> c11:p2:w [color="black", fontcolor="black", label=""];
+n2:e -> c13:p2:w [color="black", fontcolor="black", label=""];
+n2:e -> c15:p1:w [color="black", fontcolor="black", label=""];
+c10:p9:e -> n3:w [color="black", fontcolor="black", label=""];
+c11:p9:e -> n4:w [color="black", fontcolor="black", label=""];
+c12:p9:e -> n5:w [color="black", fontcolor="black", label=""];
+c13:p9:e -> n6:w [color="black", fontcolor="black", label=""];
+c14:p9:e -> n7:w [color="black", fontcolor="black", label=""];
+n7:e -> c10:p1:w [color="black", fontcolor="black", label=""];
+n7:e -> c11:p1:w [color="black", fontcolor="black", label=""];
+c15:p9:e -> n8:w [color="black", fontcolor="black", label=""];
+n8:e -> c10:p2:w [color="black", fontcolor="black", label=""];
+n8:e -> c12:p2:w [color="black", fontcolor="black", label=""];
+}

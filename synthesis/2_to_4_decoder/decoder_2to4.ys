@@ -1,0 +1,10 @@
+read_verilog combinational/decoder_2to4.v
+hierarchy -check -top decoder_2to4
+proc
+opt
+techmap
+opt
+abc -liberty /home/sudeep/vlsi/NangateOpenCellLibrary_PDKv1_3_v2010_12/Front_End/Liberty/NLDM/NangateOpenCellLibrary_typical.lib
+clean
+stat
+write_verilog -noattr synthesis/2to4decoder/decoder_2to4_45nm.v
