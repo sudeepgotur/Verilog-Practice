@@ -1,0 +1,27 @@
+Startpoint: B (input port clocked by VCLK)
+Endpoint: Y0 (output port clocked by VCLK)
+Path Group: VCLK
+Path Type: min
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock VCLK (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ input external delay
+   0.00    0.00 ^ B (in)
+   0.00    0.00 v _3_/ZN (NOR2_X1)
+   0.00    0.00 v Y0 (out)
+           0.00   data arrival time
+
+   0.00    0.00   clock VCLK (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00   clock reconvergence pessimism
+   0.00    0.00   output external delay
+           0.00   data required time
+---------------------------------------------------------
+           0.00   data required time
+          -0.00   data arrival time
+---------------------------------------------------------
+           0.00   slack (MET)
+
+
