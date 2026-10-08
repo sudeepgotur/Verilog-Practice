@@ -1,0 +1,41 @@
+# Compiled Verilog simulation executables
+*_sim
+a.out
+*.out
+
+# Simulation waveform files
+*.vcd
+*.fst
+*.lxt
+*.lxt2
+*.vpd
+
+# GTKWave save files (uncomment if you don't want to track them)
+# *.gtkw
+
+# Temporary and backup files
+*~
+*.swp
+*.swo
+*.bak
+.DS_Store
+
+# Yosys temporary files and logs
+*.log
+*.yslog
+yosys.log
+
+# OpenSTA temporary logs
+sta.log
+
+# Build directories
+build/
+obj_dir/
+
+# Python cache, if helper scripts are added later
+__pycache__/
+*.py[cod]
+
+# Editor settings
+.vscode/
+.idea/
