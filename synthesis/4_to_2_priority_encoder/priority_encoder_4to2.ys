@@ -1,0 +1,11 @@
+
+read_verilog combinational/priority_encoder_4to2.v
+hierarchy -check -top priority_encoder_4to2
+proc
+opt
+techmap
+opt
+abc -liberty /home/sudeep/vlsi/NangateOpenCellLibrary_PDKv1_3_v2010_12/Front_End/Liberty/NLDM/NangateOpenCellLibrary_typical.lib
+clean
+stat
+write_verilog -noattr synthesis/4to2priorityencoder/priority_encoder_4to2_45nm.v
