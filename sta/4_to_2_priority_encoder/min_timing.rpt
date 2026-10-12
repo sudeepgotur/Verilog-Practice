@@ -1,0 +1,27 @@
+Startpoint: D2 (input port clocked by CLK)
+Endpoint: Y0 (output port clocked by CLK)
+Path Group: CLK
+Path Type: min
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock CLK (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   2.00    2.00 ^ input external delay
+   0.00    2.00 ^ D2 (in)
+   0.01    2.01 v _6_/ZN (OAI21_X1)
+   0.00    2.01 v Y0 (out)
+           2.01   data arrival time
+
+   0.00    0.00   clock CLK (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00   clock reconvergence pessimism
+  -2.00   -2.00   output external delay
+          -2.00   data required time
+---------------------------------------------------------
+          -2.00   data required time
+          -2.01   data arrival time
+---------------------------------------------------------
+           4.01   slack (MET)
+
+
