@@ -1,0 +1,13 @@
+
+module full_adder (
+    input A,
+    input B,
+    input CIN,
+    output SUM,
+    output COUT
+);
+
+assign SUM = A ^ B ^ CIN;
+assign COUT = (A & B) | (B & CIN) | (A & CIN);
+
+endmodule
