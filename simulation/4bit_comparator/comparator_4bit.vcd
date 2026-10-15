@@ -1,0 +1,90 @@
+$date
+	Thu Oct 15 23:39:41 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module comparator_4bit_tb $end
+$var wire 1 ! LT $end
+$var wire 1 " GT $end
+$var wire 1 # EQ $end
+$var reg 4 $ A [3:0] $end
+$var reg 4 % B [3:0] $end
+$scope module uut $end
+$var wire 4 & A [3:0] $end
+$var wire 4 ' B [3:0] $end
+$var wire 1 ! LT $end
+$var wire 1 " GT $end
+$var wire 1 # EQ $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 '
+b0 &
+b0 %
+b0 $
+1#
+0"
+0!
+$end
+#10000
+b11 %
+b11 '
+1"
+0#
+b101 $
+b101 &
+#20000
+b110 %
+b110 '
+0"
+1!
+b10 $
+b10 &
+#30000
+1#
+b1010 %
+b1010 '
+0"
+0!
+b1010 $
+b1010 &
+#40000
+b1 %
+b1 '
+1"
+0#
+b1111 $
+b1111 &
+#50000
+1!
+b1111 %
+b1111 '
+0"
+0#
+b1 $
+b1 &
+#60000
+1"
+0!
+b111 %
+b111 '
+b1000 $
+b1000 &
+#70000
+1!
+b1000 %
+b1000 '
+0"
+0#
+b111 $
+b111 &
+#80000
