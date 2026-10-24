@@ -1,0 +1,62 @@
+$date
+	Sat Oct 24 21:46:10 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module full_subtractor_tb $end
+$var wire 1 ! DIFF $end
+$var wire 1 " BOUT $end
+$var reg 1 # A $end
+$var reg 1 $ B $end
+$var reg 1 % BIN $end
+$scope module uut $end
+$var wire 1 # A $end
+$var wire 1 $ B $end
+$var wire 1 % BIN $end
+$var wire 1 " BOUT $end
+$var wire 1 ! DIFF $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0%
+0$
+0#
+0"
+0!
+$end
+#10000
+1"
+1!
+1%
+#20000
+0%
+1$
+#30000
+0!
+1%
+#40000
+0"
+1!
+0%
+0$
+1#
+#50000
+0!
+1%
+#60000
+0%
+1$
+#70000
+1"
+1!
+1%
+#80000
